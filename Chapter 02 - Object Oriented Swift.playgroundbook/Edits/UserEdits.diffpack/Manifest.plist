@@ -14,12 +14,18 @@
 		<string>Added</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/4788C9F5-3108-450E-A805-2A40FD9AAC11.playgroundpage/main.swift</key>
 		<string>Modified</string>
+		<key>Chapters/Chapter1.playgroundchapter/Pages/DCB4CB11-CAE0-4A05-9ED5-5BDAD3AEBC15.playgroundpage/UserManifest.plist</key>
+		<string>Added</string>
+		<key>Chapters/Chapter1.playgroundchapter/Pages/DCB4CB11-CAE0-4A05-9ED5-5BDAD3AEBC15.playgroundpage/main.swift</key>
+		<string>Modified</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/UserManifest.plist</key>
 		<string>Added</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</key>
 		<string>Modified</string>
 		<key>Chapters/Chapter1.playgroundchapter/UserManifest.plist</key>
 		<string>Added</string>
+		<key>UserModules/UserModule.playgroundmodule/Sources/SharedCode.swift</key>
+		<string>Removed</string>
 	</dict>
 	<key>FormatVersion</key>
 	<integer>2</integer>

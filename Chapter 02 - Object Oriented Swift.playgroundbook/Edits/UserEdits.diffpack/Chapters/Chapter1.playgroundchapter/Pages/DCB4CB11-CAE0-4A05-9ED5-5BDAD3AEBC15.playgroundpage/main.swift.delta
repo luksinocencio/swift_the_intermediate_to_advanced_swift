@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// Problem: How can I add observer/tracker to a property
+
+// willSet is called just before the value is stored
+// didSet is called immediately after the new value has been stored
+
+var myGrade: Int = 80 { 
+    willSet(newGrade) { 
+        print("About to change your grade to \(newGrade)")
+    }
+    didSet(oldGrade) { 
+        print("You had \(oldGrade) previously. Now you have \(myGrade)")
+    }
+}
+
+myGrade = 100
+
+var totalSteps: Int = 20 { 
+    willSet(newTotalSteps) { 
+        print("About to set totalSteps to \(newTotalSteps)")
+    }
+    
+    didSet { 
+        if totalSteps &gt; oldValue { 
+            print("Added \(totalSteps - oldValue) steps")
+        }
+    }
+}
+
+totalSteps = 50
+totalSteps = 45
+
+// Application
+
+var isUserLoggedIn: Bool = false { 
+    willSet { 
+        print("The user has tried something")
+    }
+    didSet { 
+        if isUserLoggedIn { 
+            print("The user has switched from \(oldValue) to \(isUserLoggedIn)")
+            // Background Color
+            // Animation
+            // Pop Up
+            // All kinds of stuff
+        }
+    }
+}
+
+isUserLoggedIn = true
+isUserLoggedIn = false
+
+// Similarity with computed property
+// Always recalculated
+
+// What makes property observers different
+// 1 There is a default value and it is observed rather than calculated.
+// 2 willSet and didSet will not get called when you initialize it.
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1386}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
