@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// When I create an object, I want a shorcut without calling a method.
+// Normal Method
+struct HelloKitty {
+    func saySomething() -&gt; String {
+        return "I'm Cute"
+    }
+    
+    subscript() -&gt; String {
+        return "Hello"
+    }
+}
+
+HelloKitty().saySomething()
+HelloKitty()[]
+
+// Introducing Subscriptings
+struct WeekDays {
+    var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    
+    subscript(index: Int) -&gt; String {
+        return days[index]
+    }
+}
+
+let myDays = WeekDays()
+myDays[1]
+
+// Dictionary Type
+var info = ["Height": 183, "Body Fat": 12.5, "Weight": 76]
+
+let height = info["Height"]
+
+struct HealthInfo {
+    var info = ["Height": 183, "Body Fat": 12.5, "Weight": 76]
+    
+    subscript(key: String) -&gt; Double {
+        if let newInfo = info[key] {
+            return newInfo
+        } else {
+            return 0
+        }
+    }
+}
+
+let bobInfo = HealthInfo()
+let myHeight = bobInfo["Footsize"]
+let realHeight = bobInfo["Height"]
+
+// Usage Case
+// 1. Get the number of rows in table/collection
+// 2. Anything has to do with pair and value
+
+// Shortcoming of Subscript
+// No Context = ☠️
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1142}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

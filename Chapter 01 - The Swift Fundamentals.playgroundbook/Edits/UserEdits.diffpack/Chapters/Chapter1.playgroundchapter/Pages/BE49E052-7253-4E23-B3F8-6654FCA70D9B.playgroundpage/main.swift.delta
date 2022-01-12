@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// Problem
+/// 1. What are the differences besides inheritance?
+/// 2. When to use Structs over Classes?
+// Design Class
+class HumanClass {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+// Create Instance
+var humanClassObject = HumanClass(name: "Lucas")
+print(humanClassObject.name)
+
+var newHumanClassObject = humanClassObject
+newHumanClassObject.name = "Bobby"
+
+humanClassObject.name
+
+// Design Struct
+struct HumanStruct {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+        print("Created")
+    }
+}
+
+var structObject = HumanStruct(name: "Bob")
+var newStructObject = structObject
+newStructObject.name = "Bobby"
+
+// One more Difference in Mutability
+/// Mutable Class
+class BobClass {
+    var name = "Bob"
+}
+
+let bobClass = BobClass()
+bobClass.name = "Bobby"
+bobClass.name
+
+// Immutable Struct
+struct BobStruct {
+    var name = "Bob"
+}
+
+var bobStruct = BobStruct()
+bobStruct.name = "Bobby"
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 970}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

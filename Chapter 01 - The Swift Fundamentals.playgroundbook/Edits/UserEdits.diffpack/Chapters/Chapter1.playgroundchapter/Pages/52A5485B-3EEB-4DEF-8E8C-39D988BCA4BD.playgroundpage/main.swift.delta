@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// Problem The parameters are unreadable and boring
+// Typealias for String
+typealias Name = String
+
+func insertName(name: Name) {
+    print(name)
+}
+
+// Typealias for custom class
+class Employee { }
+
+typealias MyEmployees = [Employee]
+
+func listEmployees(enterEmployees: MyEmployees) {
+    
+}
+
+listEmployees(enterEmployees: [Employee(), Employee()])
+
+// Typealias for Tuple
+typealias GridPoint = (Int, Int)
+
+func enterPoint(grid: GridPoint) {
+    print(grid.0)
+    print(grid.1)
+}
+
+enterPoint(grid: (1, 2))
+
+// Type Definition
+let arrayOne: Array&lt;String&gt; = Array(["Bob", "Bobby"]) // 2
+let arrayTwo: [String] = ["Bob", "Bobby"] // 1
+
+// Dictionary Type
+let dictOne: [String: Int] = ["Alex": 31, "Paul": 39]
+let dictTwo: Dictionary&lt;String, Int&gt; = ["Alex": 31, "Paul": 39]
+
+// Optional Type
+var optionalOne: String?
+var optionalTwo: Optional&lt;String&gt;
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 862}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
