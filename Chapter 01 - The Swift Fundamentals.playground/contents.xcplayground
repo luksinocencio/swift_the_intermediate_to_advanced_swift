@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playground requires-full-environment="false" target-platform="ios" version="6.0">
+    <pages>
+        <page name="Lesson01 - Optionals"/>
+        <page name="Lesson02 - Optional Chainings"/>
+        <page name="Lesson03 - Guard and Defer Statement"/>
+        <page name="Lesson04 - Error Handling"/>
+        <page name="Lesson05 - Type Casting"/>
+        <page name="Lesson06 - Intro to Generics"/>
+        <page name="Lesson07 - Subscripts"/>
+        <page name="Lesson08 - Class vs Struct"/>
+        <page name="Lesson09 - Set and Tuple"/>
+        <page name="Lesson10 - Extension"/>
+        <page name="Lesson11 - Intro to Operators"/>
+        <page name="Lesson12 - Typealias"/>
+    </pages>
+</playground>
