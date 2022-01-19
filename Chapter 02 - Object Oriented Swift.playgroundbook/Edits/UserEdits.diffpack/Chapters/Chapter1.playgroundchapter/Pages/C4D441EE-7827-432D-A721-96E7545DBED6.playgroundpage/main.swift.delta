@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+class MyViewController: UIViewController { 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("Hello")
+    }
+}
+
+class Vehicle { 
+    var description: String { 
+        return "Hello, I'm moving at 30km/hr"
+    }
+    
+    func warning() { 
+        print("Be careful, I'm going pretty fast")
+    }
+}
+
+class ToyCar: Vehicle { 
+    override var description: String { 
+        return "\(super.description). Hey, but I'm small though"
+    }
+    
+    override func warning() {
+        print("Hello, don't mind me")
+        super.warning()
+    }
+}
+
+print(ToyCar().description)
+print(ToyCar().warning())
+
+// super .init
+class Human { 
+    var origin: String
+    
+    init(enterOrigin: String) { 
+        origin = enterOrigin
+    }
+}
+
+Human(enterOrigin: "Republic of Korea")
+
+class Korean: Human { 
+    var city: String
+    
+    init(enterCity: String) {
+        self.city = enterCity
+        super.init(enterOrigin: "Republic of Korea")
+    }
+    
+    init(enterCity: String, origin: String) {
+        self.city = enterCity
+        super.init(enterOrigin: origin)
+    }
+}
+
+let bob = Korean(enterCity: "Seoul")
+bob.city
+bob.origin
+
+let bobby = Korean(enterCity: "New York", origin: "The US")
+
+// Override Init
+
+class Tesla { 
+    var numberOfWheels: Int
+    
+    init(enterWheelNumber: Int) { 
+        numberOfWheels = enterWheelNumber
+    }
+}
+
+class ModelS: Tesla {
+    override init(enterWheelNumber: Int) {
+        super.init(enterWheelNumber: enterWheelNumber)
+        print("Wow, this is a beautiful car")
+    }
+}
+
+let futureCar = ModelS(enterWheelNumber: 50)
+print(futureCar.numberOfWheels)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1627}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

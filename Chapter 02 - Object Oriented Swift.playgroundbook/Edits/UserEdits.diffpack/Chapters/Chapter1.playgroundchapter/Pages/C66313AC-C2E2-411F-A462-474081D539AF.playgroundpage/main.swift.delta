@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// Problem: I'm confused by Static, Final, Class. What are those?
+
+// Structs: Static Only
+struct SomeStructure { 
+    static var storedProperty = "Some Value"
+    static var computedProperty: Int { 
+        get {
+            return 120
+        }
+        set { 
+            print("You've set to \(newValue)")
+        }
+    }
+    
+    static func hello() { 
+        print("hello")
+    }
+}
+
+SomeStructure.storedProperty
+SomeStructure.computedProperty
+SomeStructure.hello()
+
+// Class: Class and Static
+
+class GrandParent { 
+    static var numberOfYearsIsMarriage = 30
+    static func introduce() { 
+        print("We've been married for \(numberOfYearsIsMarriage)")
+    }
+    
+    class func introducing() { 
+        print("We've been married for \(numberOfYearsIsMarriage)")
+    }
+    
+    func cantOverride() { 
+        print("You cant't change me")
+    }
+}
+
+GrandParent.introducing()
+GrandParent().cantOverride()
+
+// Static can't be overidden
+
+class Parent: GrandParent { 
+    override class func introducing() {
+        print("I'm married for 5 years")
+    }
+    
+//    override func cantOverride() {
+//        print("Trying to override")
+//    }
+}
+
+Parent().cantOverride()
+
+// Application
+struct BluetoothID { 
+    struct iPhone {
+        static let iPhone4 = "4234-1232-1232-5465"
+        static let iPhone5 = "7867-5676-4535-1235"
+        static let iPhone6 = "3938-6738-1424-9876"
+        static let iPhone7 = "4845-3148-1237-1296"
+        static let iPhone8 = "7967-8123-7892-4563"
+    }
+    
+    struct Android {
+        static let samsung = "4234-1232-1232-5465"
+        static let motorola = "7867-5676-4535-1235"
+        static let lg = "3938-6738-1424-9876"
+        static let xiaomi = "4845-3148-1237-1296"
+        static let nokia = "7967-8123-7892-4563"
+    }
+}
+
+BluetoothID.iPhone.iPhone4
+BluetoothID.Android.motorola
+
+// Alternative
+enum AirDropID: String { 
+    case iPhone4 = "4234-1232-1232-5465"
+    case iPhone5 = "7867-5676-4535-1235"
+    case iPhone6 = "3938-6738-1424-9876"
+    case iPhone7 = "4845-3148-1237-1296"
+    case iPhone8 = "7967-8123-7892-4563"
+}
+
+AirDropID.iPhone8.rawValue
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2124}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
