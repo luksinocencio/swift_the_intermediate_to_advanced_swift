@@ -6,9 +6,68 @@
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>import UIKit</string>
+			<string>import UIKit
+
+// MARK: - Problem: Who are you clouseres, () -&gt; () ?
+/// A closure is a function without name and the func keyword (for now)
+/// Quick and easy to carry around as a Variable/constant or just pass as a parameter
+
+// Function and two ints
+func addTwoNumbers(number1: Int, number2: Int) -&gt; Int {
+    return number1 + number2
+}
+
+addTwoNumbers(number1: 30, number2: 30)
+
+var addFunction = addTwoNumbers
+addFunction(10, 20)
+
+var addClosure: (Int, Int) -&gt; Int = { (number1: Int, number2: Int) in
+    return number1 + number2
+}
+
+addClosure(10, 10)
+
+var addClosuresTwo = {
+    (number1: Int, number2: Int) in
+    return number1 + number2
+}
+
+var addClosureThree = { 
+    (number1: Int, number2: Int) in
+    number1 + number2
+}
+
+addClosureThree(10, 10)
+    
+// Force type
+var addClosureFour: (Int, Int) -&gt; Int = { $0 + $1 }
+addClosureFour(10, 30)
+addClosureFour(10, 15)
+
+// One example with () -&gt; String
+func callString() -&gt; String { 
+    return "hello, I'm a function"
+}
+
+let callStringWithClosure: () -&gt; String = { () in 
+    print("Hello")
+    return "Hello, I'm a closure"
+}
+
+callStringWithClosure()
+
+let callStringWithClosureTwo: () -&gt; String = { () in 
+    "Hello, I'm a closure"
+}
+
+let callStringWithClosureThree: () -&gt; String = { "Hello, I'm a closure" }
+
+let callStringWithClosureFour = { "Hello, I'm a closure" }
+callStringWithClosureFour
+</string>
 			<key>ModifiedRange</key>
-			<string>{0, 12}</string>
+			<string>{0, 1353}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>
