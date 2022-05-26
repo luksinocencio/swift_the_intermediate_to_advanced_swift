@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: - Let's circumvent the problem
+
+// Design File Type
+struct Folder {}
+struct Cell {}
+
+protocol Listable { 
+    associatedtype FileType
+    func getFileType() -&gt; String
+}
+
+class FolderCell: Listable { 
+    typealias FileType = Folder
+    func getFileType() -&gt; String {
+        return "FolderCell with \(FileType.self) type"
+    }
+}
+
+class CollectionCell: Listable {
+    typealias FileType = Cell
+    func getFileType() -&gt; String {
+        return "CollectionCell with \(FileType.self) type"
+    }
+}
+
+class ListCell: Listable {
+    typealias FileType = Cell
+    func getFileType() -&gt; String {
+        return "ListCell with \(FileType.self) type"
+    }
+}
+
+/**
+ - Generics
+ - Closure
+ */
+
+// Desing Wrapper
+class AnyCell&lt;T&gt;: Listable { 
+    typealias FileType = T
+    
+    private let _getFileType: () -&gt; String
+    
+    init&lt;U: Listable&gt;(_ enterAnyCell: U) where U.FileType == T { 
+        _getFileType = enterAnyCell.getFileType
+    }
+    
+    func getFileType() -&gt; String {
+        return _getFileType()
+    }
+}
+
+let collectionCell: AnyCell = AnyCell(CollectionCell())
+let listCell: AnyCell = AnyCell(ListCell())
+let fileTypeWithCells = [collectionCell, listCell]
+
+print(collectionCell.getFileType())
+print(listCell.getFileType())
+
+print(fileTypeWithCells[0].getFileType())
+print(fileTypeWithCells[1].getFileType())
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1344}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Design File Type
+struct Folder {}
+struct Cell {}
+
+// Design Protocol
+protocol Listable { 
+    associatedtype FileType
+    func getFileType() -&gt; String
+}
+
+class FolderCell: Listable { 
+    typealias FileType = Folder
+    func getFileType() -&gt; String {
+        return "FolderCell with \(FileType.self) type"
+    }
+}
+
+print(FolderCell().getFileType())
+
+class CollectionCell: Listable {
+    typealias FileType = Cell
+    func getFileType() -&gt; String {
+        return "CollectionCell with \(FileType.self) type"
+    }
+}
+
+print(CollectionCell().getFileType())
+
+class ListCell: Listable {
+    typealias FileType = Cell
+    func getFileType() -&gt; String {
+        return "ListCell with \(FileType.self) type"
+    }
+}
+
+// Error
+//let cell: Listable = CollectionCell()
+
+func enterListCell&lt;T: Listable&gt;(enterCell: T) {}
+enterListCell(enterCell: FolderCell())
+enterListCell(enterCell: ListCell())
+
+//let cell: Listable = arc4random() * 2 == 0 ? FolderCell() : ListCell()
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 980}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

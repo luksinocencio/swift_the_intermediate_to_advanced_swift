@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Diff</key>
+	<key>Diffs</key>
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
@@ -39,7 +39,7 @@ var addClosureThree = {
 }
 
 addClosureThree(10, 10)
-    
+
 // Force type
 var addClosureFour: (Int, Int) -&gt; Int = { $0 + $1 }
 addClosureFour(10, 30)
@@ -67,14 +67,14 @@ let callStringWithClosureFour = { "Hello, I'm a closure" }
 callStringWithClosureFour
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 1353}</string>
+			<string>{0, 1349}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>
 			<string>{0, 0}</string>
 		</dict>
 	</array>
-	<key>File</key>
-	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+	<key>FormatVersion</key>
+	<integer>2</integer>
 </dict>
 </plist>

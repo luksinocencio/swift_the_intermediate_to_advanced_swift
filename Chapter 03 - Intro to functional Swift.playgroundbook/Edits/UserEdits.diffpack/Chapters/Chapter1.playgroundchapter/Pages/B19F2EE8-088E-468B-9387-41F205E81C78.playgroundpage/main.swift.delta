@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+// Completion Handlers
+// Problem: I've heard about it. I don't know how to make one.
+
+// MARK: - Definition
+/// Do something when something Han been done
+/// Completion handler used? 
+/// 1. Notify the download has been completed
+/// 2. Animation
+
+let firstVC = UIViewController()
+let nextVC = UIViewController()
+
+firstVC.present(nextVC, animated: true, completion: nil)
+firstVC.present(nextVC, animated: true) { () in
+    print("Done")
+}
+firstVC.present(nextVC, animated: true, completion: { print("done") })
+firstVC.present(nextVC, animated: true) { 
+    print("Done")
+}
+
+// MARK: - Design Handler Block
+let myHandlerBlock: (Bool) -&gt; () = { (isSuccess) in
+    if isSuccess { 
+        print("Download has been done")
+    }
+}
+
+myHandlerBlock(true)
+
+let handlerBlock: (Bool) -&gt; () = {
+    if $0 { print("Download has been done") }
+    // Animation
+    // Pop
+}
+
+handlerBlock(true)
+
+// MARK: - Design Function
+
+func downloadAnImage(completionBlock: (Bool) -&gt; Void) { 
+    for _ in 1...100 {
+        print("Downloading")
+    }
+    
+    completionBlock(true)
+}
+
+// Pass Closure Indirectly
+downloadAnImage(completionBlock: handlerBlock)
+
+// Pass Closure Directly
+downloadAnImage { isSuccess in
+    if isSuccess {
+        print("Done")
+    }
+}
+
+// Another Example
+let handler: ([String]) -&gt; Void = { (array) in 
+    print("Done working, \(array)")
+}
+
+handler(["Blog", "Course", "Editing"])
+
+func workSuperHard(doneStuffBlock: ([String]) -&gt; Void) {
+    for _ in 1...100 {
+        print("But you gotta put in 🔨, 🔨, 🔨")
+            // download
+    }
+    
+    doneStuffBlock(["Blog", "Course", "Editing"])
+}
+
+// Enter closure indirectly
+workSuperHard(doneStuffBlock: handler)
+
+// Enter closure directly
+workSuperHard { (images: [String]) in
+    print("Done working, \(images)")
+    // compress the image
+    // add color
+    // resize
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1844}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

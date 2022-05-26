@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+var a = 0
+var b = 0
+
+// Design Closure
+
+let newClosure = { print(a, b) }
+newClosure()
+
+// MARK: - Design Closure Array
+var closureArray: [() -&gt; ()] = []
+var i = 0
+
+for _ in 1...5 { 
+    closureArray.append {
+        print(i)
+    }
+    i += 1
+}
+
+closureArray[0]() // 5
+closureArray[1]() // 5
+closureArray[2]() // 5
+closureArray[3]() // 5
+closureArray[4]() // 5
+
+// Characteristic of Closure: Reference Type
+
+var c = 0
+var d = 0
+
+let smartClosure: () -&gt; () = { () in 
+    print(c, d)
+}
+
+c = 9
+d = 9
+
+smartClosure()
+
+// MARK: - Don't reference, copy
+
+let smarterClosure: () -&gt; () = { [c, d] in
+    print(c, d)
+}
+
+smarterClosure()
+
+c = 9
+d = 10
+
+smarterClosure()
+
+// MARK: - Design Closure Array
+var smartClosureArray: [() -&gt; ()] = []
+var j = 0
+
+// Append Closure
+for _ in 1...5 {
+    smartClosureArray.append { [j] in
+        print(j)
+    }
+    j += 1
+}
+
+smartClosureArray[0] // 0
+smartClosureArray[1] // 1
+smartClosureArray[2] // 2
+smartClosureArray[3] // 3
+smartClosureArray[4] // 4
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 996}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

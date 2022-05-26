@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+struct WeekDays { 
+    private var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    
+    subscript(index: Int) -&gt; String {
+        return days[index]
+    }
+}
+
+// JSON
+struct JSON {
+    private var storage: [String: Any]
+    
+    init(dictionary: [String: Any]) {
+        self.storage = dictionary
+    }
+    
+    subscript&lt;T&gt;(key: String) -&gt; T? {
+        return storage[key] as? T
+    }
+}
+
+let republicOfKorea = JSON(dictionary: [
+    "capital": "Seoul",
+    "name": "Republic of Korea",
+    "population": 500000000
+])
+
+let koreaCapital: String? = republicOfKorea["capital"]
+let koreaName: String? = republicOfKorea["capital"]
+let koreaPopulation: Int? = republicOfKorea["population"]
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 722}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

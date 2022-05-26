@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+func trailingClosure(number: Int, closure: () -&gt; Void) {
+    print("You've entered \(number)")
+    closure()
+}
+
+// MARK: - Design Closure block
+func helloFunc() -&gt; Void {
+    print("Hello, Function!")
+}
+
+let helloClosure = {
+    print("Hello, Closure!")
+}
+
+// Pass closure indirecty
+trailingClosure(number: 100, closure: helloFunc)
+trailingClosure(number: 100, closure: helloClosure)
+
+// Pass closure directly
+trailingClosure(number: 100, closure: { print("Hello!!!") })
+trailingClosure(number: 100) { print("Hello, Lucas!") }
+
+// A single closure block at the end
+func trailingClosures(number: Int, closure: (Int) -&gt; Int) {
+    let newNumber = closure(number)
+    print(newNumber)
+}
+
+trailingClosures(number: 1000, closure: { number1 in number1 * number1 })
+trailingClosures(number: 500) { number in number * number }
+trailingClosures(number: 400) { $0 * $0 }
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 876}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

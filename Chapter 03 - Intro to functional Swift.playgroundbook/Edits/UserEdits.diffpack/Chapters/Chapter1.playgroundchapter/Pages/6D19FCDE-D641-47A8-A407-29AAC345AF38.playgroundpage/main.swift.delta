@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// MARK : - Problem: Can you pass/return a function/functions to a function? 
+
+func hello() -&gt; String {
+    return "hello"
+}
+
+hello() // () -&gt; String
+
+var addWithClosures: (Int, Int) -&gt; Int = { (number1: Int, number2: Int) in
+    return number1 + number2
+}
+
+var returnString: () -&gt; String = { () in
+    "hello"
+}
+
+// MARK: - Return closure indirectly
+
+func returnClosure() -&gt; ((Int, Int) -&gt; Int) {
+    return addWithClosures
+}
+
+let returnedClosure = returnClosure()
+returnedClosure(10, 10)
+returnClosure()(10, 10)
+
+// MARK: - Return closure directly
+func returnClosureDirectly() -&gt; ((Int, Int) -&gt; Int) {
+    return { (number1, number2) in number1 + number2 }
+}
+
+let closure = returnClosureDirectly()
+closure(10, 10)
+
+func returnClosureDirectlyTwo() -&gt; ((Int, Int) -&gt; Int) {
+    return { $0 + $1 }
+}
+
+let closureTwo = returnClosureDirectlyTwo()
+closureTwo(10, 10)
+
+// MARK: - Pass closure
+func insertClosureBlock(closureBlock: () -&gt; String) {
+    print(closureBlock())
+}
+
+// MARK: - Pass closure indirectly
+let returnValue = insertClosureBlock(closureBlock: returnString)
+insertClosureBlock(closureBlock: returnString)
+
+// MARK: - Pass closure directly
+insertClosureBlock(closureBlock: { () in return "hello"})
+insertClosureBlock(closureBlock: { return "hello"})
+insertClosureBlock(closureBlock: { "hello"})
+
+
+let example = Array(1...1000).filter { $0 % 2 == 0 }
+print(example)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1391}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

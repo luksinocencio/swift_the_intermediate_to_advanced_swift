@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// MARK: - Protocol Oriented Swift
+protocol MathGenius { 
+    func caculateGPA()
+}
+
+extension MathGenius { 
+    func caculateGPA() {
+        print("I''m too cool for school")
+    }
+}
+
+struct Bob: MathGenius {}
+Bob().caculateGPA()
+
+class Bobby: MathGenius {
+    func caculateGPA() {
+        print("1.2 GPA")
+    }
+}
+Bobby().caculateGPA()
+
+// MARK: - Pratical Protocol Extension
+protocol FindAreable {
+    func calculateArea(side: Double, length: Double) -&gt; String
+}
+
+extension FindAreable {
+    func calculateArea(side: Double, length: Double) -&gt; String {
+        let area = String(side * length)
+        return "The area is \(area)"
+    }
+}
+
+struct Square: FindAreable {}
+struct Hexagon: FindAreable {}
+Square().calculateArea(side: 4, length: 10)
+Hexagon.init().calculateArea(side: 6, length: 10)
+
+///: Usage Case
+///: 1. UILabel, UIImageView, UIView --&gt; Animation
+///: 2. Storyboard Identifier
+///: 3. Reusable table and collection view cells
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 960}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

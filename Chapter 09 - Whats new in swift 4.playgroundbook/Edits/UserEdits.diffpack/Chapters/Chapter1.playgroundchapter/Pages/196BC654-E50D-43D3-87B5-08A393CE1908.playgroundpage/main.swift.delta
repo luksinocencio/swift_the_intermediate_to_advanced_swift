@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+let geek = """
+    {
+         "stackOverFlowId": "bobthedev",
+         "name": "bob",
+         "platform": "iOS"
+    }
+""".data(using: .utf8)!
+
+struct Geek: Codable {
+    var username: String
+    var name: String
+    var platform: String
+    
+    enum CodingKeys: String, CodingKey {
+        case username = "stackOverFlowId"
+        case name
+        case platform
+    }
+}
+
+let geekObject = Geek(username: "bobthedev", name: "Bob Lee", platform: "iOS")
+let encoder = JSONEncoder()
+
+do {
+    let data = try encoder.encode(geekObject)
+    print(String(data: data, encoding: .utf8)!)
+} catch (let error) {
+    print(error)
+}
+
+// Fully Customize By conforming to Encodable
+struct Blog {
+    let author: String
+    let id: Int
+    let url: URL
+    
+    enum BlogCodingKeys: String, CodingKey {
+        case author
+        case id
+        case url
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 870}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

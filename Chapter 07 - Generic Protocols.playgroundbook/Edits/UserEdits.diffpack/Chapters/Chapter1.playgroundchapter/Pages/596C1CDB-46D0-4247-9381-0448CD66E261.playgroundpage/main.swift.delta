@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: - Limit the scope of Protocol Extension with where and Self
+class LOL {}
+func addLOLClassOnly&lt;T: LOL&gt;(array: [T]) {}
+addLOLClassOnly(array: [LOL()])
+
+// Design Protocol
+protocol GenericProtocol { 
+    associatedtype myType
+}
+
+class SomeClass: GenericProtocol { 
+    typealias myType = String
+}
+
+struct SomeStruct: GenericProtocol { 
+    typealias myType = Int
+}
+
+extension GenericProtocol where myType == String { 
+    static func introduce() { 
+        print("Hey, I'm Lucas")
+    }
+}
+
+SomeClass.introduce()
+
+extension GenericProtocol where Self == SomeStruct { 
+    static func saySomething() { 
+        print("I'm some struct")
+    }
+}
+
+SomeStruct.saySomething()
+
+// Design Pre-Defined Associated Type
+// Dont do this
+protocol FamilyProtocol { 
+    associatedtype familyType = Int
+    var familyMembers: [familyType] { get set }
+}
+
+struct NumberFamily: FamilyProtocol {
+    var familyMembers: [Int] = [1, 3, 4]
+}
+
+struct StringFamily: FamilyProtocol {
+    var familyMembers: [String] = ["Lucas"] // familyType == String
+}
+
+
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1060}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

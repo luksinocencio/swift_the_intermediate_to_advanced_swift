@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Design Model
+struct Developer {
+    var platform: Platform
+    var information: Information
+}
+
+enum Platform {
+    case iOS
+    case android
+}
+
+struct Information {
+    var name, strengths, motivation: String
+}
+
+// Create Objects
+let robInformation = Information(name: "Rob", strengths: "Zenness", motivation: "Change the world")
+let bobInformation = Information(name: "Bob", strengths: "Dryness", motivation: "None")
+
+let rob = Developer(platform: .android, information: robInformation)
+let bob = Developer(platform: .iOS, information: bobInformation)
+
+rob.information.name
+bob.information.name
+
+// Swift Key Paths
+
+let bobPlatform = bob[keyPath: \Developer.platform]
+// Store Path
+let informationKeyPath = \Developer.information
+let bobInfo = bob[keyPath: informationKeyPath]
+let robInfo = rob[keyPath: informationKeyPath]
+
+// Append Key Path
+
+let nameKeyPath = informationKeyPath.appending(path: \.name)
+bob[keyPath: nameKeyPath]
+rob[keyPath: nameKeyPath]
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 981}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

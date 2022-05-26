@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: Error Handling back then
+
+// HTTPS Request
+// Design Error 
+enum HTTPError { 
+    case notFound404
+    case forbidden403
+}
+
+// Design Result Type
+enum ResultType&lt;T&gt; { 
+    case success(T)
+    case failure(HTTPError)
+}
+
+let success = ResultType.success("JSON, Image")
+let failure: ResultType&lt;Any&gt; = ResultType.failure(.notFound404)
+
+// Design Function and Return Error Object
+func findSubDomain(subdomain: String) -&gt; ResultType&lt;String&gt; {
+    switch subdomain {
+    case "business":
+        return ResultType.failure(.forbidden403)
+    case "blog":
+        return ResultType.failure(.notFound404)
+    default:
+        return ResultType.success("Found website")
+    }
+}
+
+let result = findSubDomain(subdomain: "business")
+
+switch result {
+case let .success(data):
+    print(data)
+case let .failure(errorType):
+    switch errorType {
+    case .notFound404:
+        print("Not found: 404")
+    case .forbidden403:
+        print("Not allowe: 403")
+    }
+}
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 981}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

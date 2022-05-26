@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+let random: Any = [1, "String", ["123"]]
+
+protocol EastAsianable { 
+    var useChopstics: Bool { get }
+    var origin: String { get }
+}
+
+extension EastAsianable { 
+    var useChopstics: Bool { 
+        return true
+    }
+}
+
+struct Korean: EastAsianable { 
+    var origin: String = "Korea"
+}
+
+struct Japanese: EastAsianable { 
+    var origin: String = "Japan"
+}
+
+struct Chinese: EastAsianable { 
+    var origin: String = "China"
+}
+
+let eastAsians: [EastAsianable] = [Korean(), Japanese(), Chinese()]
+
+for eastAsian in eastAsians {
+    print("I'm from \(eastAsian.origin)")
+}
+
+/// Combine UILabel, UIImageView, loop through to change colors, animation, and so on.
+protocol UniqueView { }
+extension UIImageView: UniqueView { }
+extension UILabel: UniqueView { }
+
+// MARK: - 
+protocol Sleekable {
+    var price: String { get }
+}
+
+struct Diamond: Sleekable {
+    var price: String = "Very High"
+}
+
+struct Ruby: Sleekable {
+    var price: String = "High"
+}
+
+struct Glass: Sleekable {
+    var price: String = "Dirt Cheap"
+}
+
+func stateThePrice&lt;T: Sleekable&gt;(enterGem: T) {
+    print("I'm expensive. In fact, I'm \(enterGem.price)")
+}
+
+stateThePrice(enterGem: Glass())
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1173}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

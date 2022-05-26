@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+/**
+ - How to use capture lists to prevent reatin cycle in closures.
+ - When to use unowned
+ */ 
+
+// Design Class
+class BobClass { 
+    var bobClosure: (() -&gt; ())?
+    var name: String = "Lucas"
+    
+//    init() { 
+//        bobClosure = { [weak self] in
+////            guard let self = self else { return }
+////            print("\(self.name) the developer")
+//            guard let object = self else { return }
+//            print("\(object.name) the developer")
+//        }
+//    }
+    
+    init() { 
+        bobClosure = { [unowned self] in
+            print("\(self.name) the developer")
+        }
+    }
+    
+    deinit { 
+        print("Bobclass gone")
+    }
+}
+
+var bobClass: BobClass? = BobClass()
+bobClass?.bobClosure?()
+bobClass = nil
+
+class CreditCard { 
+    unowned let owner: Owner
+    
+    init(enterOwner: Owner) { 
+        owner = enterOwner
+    }
+    
+    deinit {
+        print("Card gone")
+    }
+}
+
+class Owner { 
+    var creditCard: CreditCard?
+    deinit { print("Owner gone") }
+}
+
+// create Instances
+var bob: Owner? = Owner()
+var myCard = CreditCard(enterOwner: bob!)
+bob?.creditCard = myCard 
+
+bob = nil
+//myCard.owner // crash
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1174}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

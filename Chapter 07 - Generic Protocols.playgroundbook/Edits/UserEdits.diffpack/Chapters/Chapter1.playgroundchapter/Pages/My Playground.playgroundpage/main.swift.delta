@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: - How to create generic protocols
+
+// MARK: - 1 Rule: Type must be defined before compiled.
+// Design Generic Struct
+struct GenericStruct&lt;T&gt; {
+    var property: T?
+}
+let explicitly = GenericStruct&lt;Bool&gt;()
+// T is Bool
+let implicitly = GenericStruct(property: "Bob")
+// T is String
+
+// Design Normal Protocol
+protocol NormalProtocol { 
+    var property: String { get set }
+}
+
+// Design class
+class NormalClass: NormalProtocol { 
+    var property: String = "Bob"
+}
+
+// MARK: - Introducing Generic Protocol
+protocol GenericProtocol { 
+    associatedtype myType
+    var anyProperty: myType { get set }
+}
+
+// Define Associated type
+struct SomeStruct: GenericProtocol { 
+    var anyProperty = 1996
+}
+struct NewStruct: GenericProtocol { 
+    var anyProperty = "Bob" // myType = String
+}
+
+// Define Associated Type with Typealias
+struct ExplicitStruct: GenericProtocol { 
+    typealias myType = Bool
+    var anyProperty = true
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 952}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// MARK: - The delegate pattern
+/// Purpose of delegate: Communicate/Pass Data between objects
+/// Goal: Send data from FirstVC to SecondVC
+
+// Design Protocol
+protocol PassDataDelegate { 
+    func passData(data: String)
+}
+
+/// Design Delegator (Sender)
+class FirstVC { 
+    var delegate: PassDataDelegate?
+}
+
+FirstVC().delegate?.passData(data: "a bunch of contracts")
+
+/// Design Delegate (Receiver)
+class SecondVC: PassDataDelegate {
+    func passData(data: String) {
+        print("The CEO gave me \(data)")
+        // UI Update
+        // Pop up
+        // Animation
+    }
+}
+
+// Create Objects
+let firstVC = FirstVC()
+let secondVC = SecondVC()
+
+/// Assign Delegate
+firstVC.delegate = secondVC
+firstVC.delegate?.passData(data: "a bunch of contract")
+
+/// Pratical example in iOS
+class BobViewController: UIViewController, UITableViewDelegate {
+    let tableView = UITableView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1124}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

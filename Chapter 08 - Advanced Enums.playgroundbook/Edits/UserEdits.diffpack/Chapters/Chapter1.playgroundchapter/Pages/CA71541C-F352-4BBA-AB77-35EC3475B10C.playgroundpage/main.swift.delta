@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: Just more than one
+
+enum FutureCourse {
+    enum LearnSwiftWithBob: String { 
+        case genericProtocol
+        case advancedEnum
+        
+        var chapterDescription: String { 
+            return self.rawValue
+        }
+    }
+    
+    enum UIKitFundamentals: String {
+        case realmDatabase
+        case noStoryboard
+        case cloudComputing
+        
+        var chapterDescription: String { 
+            return self.rawValue
+        }
+    }
+}
+
+FutureCourse.LearnSwiftWithBob.genericProtocol.chapterDescription
+FutureCourse.UIKitFundamentals.noStoryboard.chapterDescription
+
+// MARK: Game Design
+
+struct Character { 
+    enum CharacterType {
+        case prince
+        case warrior
+        case priest
+    }
+    
+    enum Skill {
+        case airwalk
+        case transparency
+        case prediction
+    }
+    
+    let type: CharacterType
+    let skill: Skill
+}
+
+let bob = Character(type: .warrior, skill: .airwalk)
+
+// MARK: - Another Game Design
+
+enum Wearable {
+    enum Weight: Int {
+        case light
+        case medium
+        case heavy
+    }
+    
+    enum Price: Int { 
+        case leather
+        case iron
+        case steel
+    }
+    
+    case armor(weight: Weight, price: Price)
+    
+    func getDescription() -&gt; String {
+        switch self { 
+        case let .armor(weight, price):
+            return "You've chosen \(weight) and \(price)"
+        }
+    }
+}
+
+let myClothes = Wearable.armor(weight: .light, price: .steel)
+print(myClothes.getDescription())
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1520}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// MARK: - Problem: Bi-Directional Communication
+/// Purpose of Data Source: Communicate (Backward) from SecondVC(delegate) to FirstVC(delegator)
+
+// Design Protocol
+protocol PassDataDataSource { 
+    func passData(data: String) -&gt; String
+}
+
+// Design Delegator
+class FirstVC { 
+    var delegate: PassDataDataSource?
+}
+
+FirstVC().delegate?.passData(data: "a bunch of contracts")
+
+// Delegate (Receiver/Secretary)
+class SecondVC: PassDataDataSource {
+    func passData(data: String) -&gt; String  {
+        print("The CEO gave me \(data)")
+        return "I'm too tired"
+    }
+}
+// Create Objects:
+let firstVC = FirstVC()
+let secondVC = SecondVC()
+
+// Assign Delegate
+firstVC.delegate = secondVC
+let message = firstVC.delegate?.passData(data: "a bunch of contracts!")
+print(message)
+
+class BobViewController: UIViewController, UITableViewDataSource { 
+    var tableView = UITableView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return 300
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        return UITableViewCell(style: .default, reuseIdentifier: "cell")
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1312}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

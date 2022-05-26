@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+/**
+ - What is functional programming ?
+ - functional programming is paradigm that allows you to make your code explicit. There is no state and no mutality.
+ - Functional programming is nothing more than using functions to derive results.
+ */
+
+// MARK: - Somewhere in ViewController
+let numbers = [1, 2, 3]
+var sum = 0
+for number in numbers { 
+    sum += number
+}
+print(sum)
+
+func saveFromMadness(elements: [Int]) -&gt; Int { 
+    var sum = 0
+    for element in elements { 
+        sum += element
+    }
+    return sum
+}
+
+saveFromMadness(elements: [1, 2, 3])
+
+// MARK: - Benefits of functional programming
+/**
+ Declarative Programming
+ - The user does not care about the process
+ 
+ Imperative Programming
+ - It tells you how you got the answer from a -&gt; b
+ 
+ Benefits of functional programming
+ - Functional paradigm ensures no mutability or no change in state when used/No explicit state management.
+ - Modularity
+ - Fewer lines
+ - Conventional communication
+ */
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 978}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

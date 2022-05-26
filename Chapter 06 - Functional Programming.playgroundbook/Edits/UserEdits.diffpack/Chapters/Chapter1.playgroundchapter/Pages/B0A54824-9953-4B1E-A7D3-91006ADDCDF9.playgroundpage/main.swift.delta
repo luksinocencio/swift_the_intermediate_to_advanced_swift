@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation 
+
+// Problem: Combine all into one
+
+// MARK: - Imperative/Non-Functional
+
+// Addition
+var numberOne = Int()
+for number in Array(1...10) { 
+    numberOne += number
+}
+numberOne
+
+// Subtraction
+var numberTwo = Int()
+for number in Array(1...10) { 
+    numberTwo -= number
+}
+numberTwo
+
+let added = Array(1...10).reduce(0) { $0 + $1 }
+let subtracted = Array(1...10).reduce(0) { $0 - $1 }
+
+print(added)
+print(subtracted)
+
+// Let's Find out
+func myReduce(_ seed: Int, numbers: [Int], operation: (Int, Int) -&gt; Int) { 
+    var current = seed
+    // 3
+    for number in numbers { 
+        current = operation(current, number)
+        // 6
+    }
+}
+
+myReduce(0, numbers: Array(1...10)) { $0 + $1 }
+
+// Max number
+let maxNumber = Array(1...10).reduce(0) { (total, number) in max(total, number) }
+let bigNumber = Array(1...10).reduce(0) { max($0, $1)}
+
+extension Array { 
+    func reduce(_ seed: Element, operation: (Element, Element) -&gt; Element) -&gt; Element { 
+        var current = seed
+        for item in self { 
+            current = operation(current, item)
+        }
+        return current
+    }
+}
+
+// Example
+let names = ["Bob", "Bobby", "Lee"]
+
+let description = names.reduce("Names: ") { "\($0) " + $1 }
+print(description)
+
+let lowerNames = names.map { $0.lowercased() }.reduce("Names:") { "\($0) " + $1 }
+print(lowerNames)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1336}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

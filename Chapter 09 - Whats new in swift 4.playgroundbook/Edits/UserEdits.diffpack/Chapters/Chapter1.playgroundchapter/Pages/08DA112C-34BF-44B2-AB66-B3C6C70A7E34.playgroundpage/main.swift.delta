@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem Map JSON to Object in a couple lines of code and the opposite
+
+enum SerializationError: Error {
+    case missing(String)
+    case invalid(String, Any)
+}
+
+let blogPost = """
+    {
+        "post1": { 
+            "title": "The Complete Understanding of Delegate",
+            "subtitle": "No more guessing",
+            "markdown": "# Title",
+            "author": "Bob Lee",
+            "tags": ["delegate", "object"],
+        },
+    }
+""".data(using: .utf8)!
+
+// Model
+struct Post {
+    let title: String
+    let subtitle: String
+    let markdown: String
+    let author: String
+    let tags: [String]
+    
+    public init(json: [String: Any]) throws {
+        guard let title = json["title"] as? String else {
+            throw SerializationError.missing("title")
+        }
+        
+        guard let subtitle = json["subtitle"] as? String else {
+            throw SerializationError.missing("subtitle")
+        }
+        guard let markdown = json["markdown"] as? String else {
+            throw SerializationError.missing("markdown")
+        }
+        
+        guard let author = json["author"] as? String else {
+            throw SerializationError.missing("author")
+        }
+        guard let tags = json["tags"] as? [String] else {
+            throw SerializationError.missing("tags")
+        }
+        
+        self.title = title
+        self.subtitle = subtitle
+        self.markdown = markdown
+        self.author = author
+        self.tags = tags
+    }
+}
+
+// Design Model
+
+struct User: Codable {
+    var name: String
+    var loginMethods: [LoginMethods]
+    var numberOfFriends: Int
+    
+    enum LoginMethods: String, Codable { 
+        case facebook, instagram, linkedin, twitter
+    }
+}
+
+struct AnotherUser: Codable {
+    var fullName: String
+    var loginMethods: [LoginMethods]
+    var numberOfFriends: Int
+    
+    enum LoginMethods: String, Codable { 
+        case facebook, instagram, linkedin, twitter
+    }
+}
+
+// Create Object
+let bob = User(name: "Bob Lee", loginMethods: [.facebook, .instagram], numberOfFriends: 4)
+
+let newBob = AnotherUser(fullName: "Lucas Inocencio", loginMethods: [.facebook], numberOfFriends: 3)
+
+// Create Encoder
+let jsonEncoder = JSONEncoder()
+jsonEncoder.outputFormatting = .prettyPrinted
+var data: Data?
+
+do {
+    let jsonData = try jsonEncoder.encode(bob)
+    data = jsonData
+    if let jsonString = String(data: jsonData, encoding: .utf8) {
+        print("bob: \(jsonString)")
+    }
+}
+
+// Decode
+let jsonDecoder = JSONDecoder()
+do {
+    let bob = try jsonDecoder.decode(User.self, from: data!)
+    print("Name: \(bob.name)")
+    print("Number of friends: \(bob.numberOfFriends)")
+} catch(let error) {
+    print(error)
+}
+
+// Meaning of self
+let userType = User.self
+userType.init(name: "Bob", loginMethods: [.facebook], numberOfFriends: 4)
+
+// Another example
+struct Geek: Codable {
+    let stackOverFlowId: String
+    let name: String
+    let platform: String
+}
+
+let geeks = """
+    [{
+         "stackOverFlowId": "bobthedev",
+         "name": "bob",
+         "platform": "iOS"
+    }]
+""".data(using: .utf8)!
+
+do {
+    let developers = try JSONDecoder().decode([Geek].self, from: geeks)
+    developers.forEach { print($0) }
+} catch(let error) {
+    print(error)
+}
+
+
+let geeksDict = """
+    {
+        "1": {
+             "stackOverFlowId": "bobthedev",
+             "name": "bob",
+             "platform": "iOS"
+            },
+        "2": {
+             "stackOverFlowId": "bobthedev",
+             "name": "bob",
+             "platform": "iOS"
+            }
+}
+""".data(using: .utf8)!
+
+do {
+    let geekDictionary = try JSONDecoder().decode([String: Geek].self, from: geeksDict)
+    geekDictionary.forEach { print("\($0.key): \($0.value)") }
+} catch(let error) {
+    print(error)
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 3762}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: [1, 2, 3, 4, 5] to [1, 4, 9, 16, 25] in one line
+
+var squaredNumbers: [Double] = []
+var numbers = [1.0, 2.0, 3.0, 4.0, 5.0]
+for number in numbers { 
+    squaredNumbers.append(number * number)
+}
+print(squaredNumbers)
+
+// MARK: Map functions
+numbers.map { $0 * $0 }
+
+func myMap(numbers: [Double], operation: (Double) -&gt; Double) -&gt; [Double] { 
+    var result: [Double] = []
+    for number in numbers { 
+        let transformedValue = operation(number)
+        result.append(transformedValue)
+    }
+    
+    return result
+}
+
+print(myMap(numbers: [1, 2, 3, 4, 5], operation: { number -&gt; Double in 
+    number * number
+}))
+print(myMap(numbers: [1, 2, 3, 4, 5], operation: { $0 * $0 }))
+
+func slightlyGenericMap&lt;T&gt;(_ items: [T], _ operation: (T) -&gt; T) -&gt; [T] {
+    var result: [T] = []
+    
+    for item in items {
+        result.append(operation(item))
+    }
+    
+    return result
+}
+
+let upperLetters = ["BOB", "BOBBY", "LEE"]
+
+func lowercase(enterString: String) -&gt; String { 
+    return enterString.lowercased()
+}
+
+// MARK: - Pass Closure **Indirectly**
+print(slightlyGenericMap(upperLetters, lowercase))
+
+// MARK: - Pass Closure **Directly** (Long Form)
+slightlyGenericMap(upperLetters) { name -&gt; String in
+    name.lowercased()
+}
+
+// MARK: - Pass Closure **Directly** (Shorter Form)
+slightlyGenericMap(upperLetters, { $0.lowercased() })
+
+// Extremely Generic Map
+func genericMap&lt;T, U&gt;(_ items: [T], _ operation: (T) -&gt; U)-&gt; [U] { 
+    var result = [U]()
+    for item in items { 
+        result.append(operation(item))
+    }
+    return result
+}
+
+// Pass Closure **Indirectly**
+func convertNumberToString(number: Int) -&gt; String { 
+    "You are number \(String(number))"
+}
+
+let myNumber = [1, 2, 3, 4, 5]
+print(genericMap(myNumber, convertNumberToString))
+genericMap(myNumber) { "You are number \(String($0))"}
+
+// The Purest Form
+extension Array { 
+    func myMap&lt;U&gt;(_ operation: (Element) -&gt; U) -&gt; [U] { 
+        var result = [U]()
+        for item in self { 
+            result.append(operation(item))
+        }
+        return result
+    }
+}
+
+let finalResult = Array(1...10).myMap { $0 * 10 }
+print(finalResult)
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2142}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

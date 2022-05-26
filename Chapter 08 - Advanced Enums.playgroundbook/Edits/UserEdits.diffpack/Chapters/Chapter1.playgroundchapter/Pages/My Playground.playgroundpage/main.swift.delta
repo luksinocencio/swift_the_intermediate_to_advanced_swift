@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+// MARK: - Enums
+/**
+ - Basic Enumerations
+ - Enumerations that have raw values
+ - Enumarations thta have associted values
+ */
+
+// MARK: - Basic Enumerations
+enum Compass {
+    case north
+    case south 
+    case east
+    case west
+}
+
+enum Planet { 
+    case mercury, venus, earth, mars, jupiter, saturn, urunus, neptune
+}
+
+let earth = Planet.earth
+switch earth {
+case .earth:
+    print("Mostly safe")
+default:
+    print("Not a safe place for me")
+}
+/**
+ Swift supports the following types for the value of an enum:
+ - Integer
+ - Float
+ - String
+ - Bool
+ */
+// Raw value String
+enum Food: String { 
+    case pizza 
+    case banana
+    case chicken
+    case bigMac
+}
+
+let stringValueFromPizza = Food.pizza.rawValue
+// If doesn't exist equal sign and value associated, the case will be represent the value
+print(stringValueFromPizza)
+
+enum Days: Int { 
+    case mon, tue, wed, thu, fri, sat, sun
+}
+// print(value like int and start from 0)
+Days.mon.rawValue
+
+// Initialization
+let possibleeDay = Days(rawValue: 10)
+print(possibleeDay)
+
+if let someDay = Days(rawValue: 3) {
+    switch someDay {
+    case .sat, .sun: 
+        print("Weekdends!")
+    default:
+        print("Weekdays!")
+    }
+} else {
+    print("No such day exists")
+}
+
+// MARK: - Associated Value
+enum Barcode { 
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
+}
+
+var myQRCode = Barcode.qrCode("XYZ")
+var upcCode = Barcode.upc(4, 2, 5, 5)
+
+if case let Barcode.qrCode(value) = myQRCode { 
+    print("This is a qrcode")
+    print(value)
+}
+
+if case let Barcode.upc(numberSystem, manufacturer, product, check) = upcCode { 
+    print("numberSystem: ", numberSystem)
+    print("manufacturer: ", manufacturer)
+    print("product: ", product)
+    print("check: ", check)
+}
+
+let code = myQRCode
+
+switch code { 
+case .upc(let numberSystem, let manufacturer, let product, let check):
+    print("UPC: \(numberSystem), \(manufacturer), \(product), \(check)")
+case .qrCode(let productCode):
+    print("QR code: \(productCode).")
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2007}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+var evens = [Int]()
+
+for i in 1...10 { 
+    if i % 2 == 0 { 
+        evens.append(i)
+    }
+}
+
+// MARK: - Declarative/Functional
+Array(1...10).filter { (number) in number % 2 == 0 }
+Array(1...10).filter { $0 % 2 == 0 }
+
+let recentGrade = ["A", "A", "A", "A", "B", "D"]
+var happyGrade: [String] = []
+
+for grade in recentGrade {
+    if grade == "A" {
+        happyGrade.append(grade)
+    } else { 
+        print("My mama not happy")
+    }
+}
+print(happyGrade)
+
+var isMomHappy: (String) -&gt; Bool = { (grade) in 
+    return grade == "A"
+}
+
+isMomHappy = { $0 == "A" }
+isMomHappy("A")
+isMomHappy("B")
+
+// Create function that takes the closure
+
+func simpleStringFilter(grades: [String], operation: (String) -&gt; Bool) -&gt; [String] {
+    var happyGrade: [String] = []
+    for grade in grades { 
+        if operation(grade) { 
+            happyGrade.append(grade)
+        } else { 
+            print("Not the grade I want")
+        }
+    }
+    return happyGrade
+}
+print(simpleStringFilter(grades: recentGrade, operation: isMomHappy))
+print(simpleStringFilter(grades: recentGrade) { grade in return grade == "A" })
+
+func genericFilter&lt;T&gt;(array: [T], operation: (T) -&gt; Bool) -&gt; [T] {
+    var result: [T] = []
+    
+    for element in array { 
+        if operation(element) {
+            result.append(element)
+        } else { 
+            print("Not the grade I want")
+        }
+    }
+    return result
+}
+
+genericFilter(array: recentGrade) { grade in
+    return grade == "A"
+}
+
+let AStudent = genericFilter(array: Array(1...100), operation: {
+    $0 &gt; 93 &amp;&amp; $0 &lt;= 100
+})
+
+print(AStudent)
+
+let answer = [true, false, true, false, false, false, false]
+let trueAnswer = genericFilter(array: answer, operation: { $0 == true })
+print(trueAnswer)
+
+let falseAnswer = genericFilter(array: answer) { $0 == false }
+
+// The built filter functional
+let zeroToHund = Array(1...100)
+zeroToHund.filter { $0 % 2 == 0 }.filter { $0 &lt;= 50 }
+
+// MARK: - The Purest Form
+extension Array { 
+    func myFilter(_ operation: (Element) -&gt; Bool) -&gt; [Element] {
+        var result: [Element] = []
+        for item in self {
+            if operation(item) { 
+                result.append(item)
+            }
+        }
+        return result
+    }
+}
+
+let result = Array(1...100).myFilter { $0 % 2 == 0 }
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2278}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
