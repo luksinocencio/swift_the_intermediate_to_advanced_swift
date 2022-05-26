@@ -41,7 +41,7 @@ do {
 }
 
 // Fully Customize By conforming to Encodable
-struct Blog {
+struct Blog: Codable {
     let author: String
     let id: Int
     let url: URL
@@ -52,9 +52,78 @@ struct Blog {
         case url
     }
 }
+
+extension Blog { 
+    func encode(to encoder: Encoder) throws { 
+        var container = encoder.container(keyedBy: BlogCodingKeys.self)
+        
+        try container.encode(author, forKey: .author)
+        try container.encode(id, forKey: .id)
+        try container.encode(url, forKey: .url)
+    }
+}
+
+// Create Object
+let post = Blog(author: "Bob", id: 1, url: URL(string: "https://www.bobthedeveloper.io")!)
+
+// Encode (Object to JSON)
+do { 
+    let myBlog = try JSONEncoder().encode(post)
+    let string = String(data: myBlog, encoding: .utf8)
+    if let string = string {
+        print(string)
+    }
+} catch(let error) {
+    print(error)
+}
+
+// Customize Decode
+struct User: Codable {
+    var name: String?
+    var citizenship: String?
+    var id: Int?
+    
+    init(name: String, citizenship: String, id: Int) {
+        self.name = name
+        self.citizenship = citizenship
+        self.id = id
+    }
+}
+
+extension User {
+    enum UserCodingKeys: String, CodingKey {
+        case name
+        case id 
+        case citizenship
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: UserCodingKeys.self)
+        let name: String = try container.decode(String.self, forKey: .name)
+        let citizenship: String = try container.decode(String.self, forKey: .citizenship)
+        let id: Int = try container.decode(Int.self, forKey: .id)
+        
+        self.init(name: name, citizenship: citizenship, id: id)
+    }
+}
+
+let userBobData = """
+{
+    "name": "Bob Lee",
+    "id": 1,
+    "citizenship": "Japan"
+}
+""".data(using: .utf8)!
+
+do {
+    let userBob = try JSONDecoder().decode(User.self, from: userBobData)
+    print(userBob)
+} catch(let error) {
+    print(error)
+}
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 870}</string>
+			<string>{0, 2606}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>
