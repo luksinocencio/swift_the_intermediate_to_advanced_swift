@@ -38,9 +38,11 @@ func rethrowableFuncWithErrorHandling(closure: () throws -&gt; ()) rethrows {
     }
 }
 
+try? rethrowableFuncWithErrorHandling(closure: throwableFunc)
+
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 564}</string>
+			<string>{0, 627}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>
