@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: Learn how to create custom operators
+
+// Note: Function parameters are constants by default
+
+func enterSomething(_ a: inout Int) { 
+    a += 1
+    print(a)
+}
+
+var number = 10
+enterSomething(&amp;number)
+print(number)
+
+// Design Prefix and PostFix Operators
+!true
+!false
+
+prefix operator √
+prefix func √(number: Double) -&gt; Double { 
+    return sqrt(number)
+}
+
+√1000000
+√900
+
+prefix operator ©
+prefix func ©(enterWord: String) -&gt; String { 
+    return "\(enterWord)Ω"
+}
+
+©"Bob the Developer"
+
+// PostFix
+// Ex)
+let myName: String? = "Bob"
+myName!
+
+postfix operator =!
+postfix func =!(value: String?) -&gt; String {
+    guard let unwrappedValue = value else { return "" }
+    return unwrappedValue
+}
+
+let myNickname: String = "Bobby"
+myNickname=!
+
+postfix operator %%
+postfix func %%(enterNumber: Int) -&gt; String { 
+    return enterNumber % 2 == 0 ? "Even" : "Odd"
+}
+
+100%%
+Int(arc4random())%%
+
+// Infix
+// not work - Deprecated
+//infix operator ** { associativity left precedence 130 }
+//func ** (left: Double, right: Double) -&gt; Double { 
+//    return pow(left, right)
+//}
+
+precedencegroup CustomOperatorPrecedence {
+    higherThan:  AdditionPrecedence
+    lowerThan: MultiplicationPrecedence
+    associativity: left
+}
+
+infix operator **: CustomOperatorPrecedence
+func ** (left: Double, right: Double) -&gt; Double { 
+    return pow(left, right)
+}
+
+2 ** 3
+2 ** 10
+
+infix operator ????: CustomOperatorPrecedence
+
+func ????(left: UInt32, right: UInt32) -&gt; Double { 
+    let lower: UInt32 = left
+    let upper: UInt32 = right
+    let randomNumber = arc4random_uniform(upper - lower) + lower
+    return Double(randomNumber)
+}
+
+2 * 4 + 3 ???? 4
+
+1 ???? 10
+1 ???? 124232324
+
+func findRandomNumber(from lower: Double, to upper: Double) -&gt; Double {
+    return Double()
+}
+
+findRandomNumber(from: 0, to: 10)
+
+// MARK: - Overloading
+
+func * (left: String, right: Int) -&gt; String { 
+    guard right &gt;= 0 else {
+        print("Make sure enter number higher 0")
+        return ""
+    }
+    
+    var result = String()
+    for _ in 1..&lt;right { 
+        result += left
+    }
+    
+    return result
+}
+
+"a" * 10
+
+// [1, 2] + [3, 4] // [4.0, 6.0]
+func +(left: [Double], right: [Double]) -&gt; [Double] { 
+    var sum = [Double](repeating: 0.0, count: left.count)
+    print(left.enumerated())
+    
+    for(i, _) in left.enumerated() {
+        sum[i] = left[i] + right[i]
+    }
+    
+    return sum
+}
+
+//[1, 2] + [3, 4]
+
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2413}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+/**
+ Problem:
+ - Learn how to create nested generic enum
+ - Learn more about recursive enum with binary tree
+ */
+
+// Design Gerenic Enums
+
+enum Gadget&lt;T&gt; {
+    case smartphone
+    case laptop
+    case fridge
+    case others(T)
+}
+
+enum Company&lt;T&gt; {
+    case Samsung
+    case Apple
+    case Sony
+    case others(T)
+}
+
+// Design Struct
+
+struct Product&lt;T&gt; {
+    let company: Company&lt;T&gt;
+    let gadget: Gadget&lt;T&gt;
+    let reviews: [T]
+    
+    init(enterCompany: Company&lt;T&gt;, enterGadget: Gadget&lt;T&gt;, enterReview: [T]) {
+        company = enterCompany
+        gadget = enterGadget
+        reviews = enterReview
+    }
+}
+
+let myProduct = Product(enterCompany: .Apple, enterGadget: .fridge, enterReview: ["Good, silver, but expensive"])
+
+
+// swift
+struct Team&lt;T&gt; {
+    struct TeamMember {
+        let name: T?
+        let age: T?
+    }
+}
+
+struct NestedProduct&lt;T&gt; { 
+    enum Gadget {
+        case smartphone
+        case laptop
+        case fridge
+        case others(T)
+    }
+    
+    enum Company {
+        case Samsung
+        case Apple
+        case Sony
+        case others(T)
+    }
+    
+    let company: Company
+    let gadget: Gadget
+    let reviews: [T]
+    
+    init(enterCompany: Company, enterGadget: Gadget, enterReview: [T]) { 
+        company = enterCompany
+        gadget = enterGadget
+        reviews = enterReview
+    }
+}
+
+let myFridge = NestedProduct(enterCompany: .Apple, enterGadget: .laptop, enterReview: ["Good"])
+print(myFridge)
+
+/**
+ - Cyclic Dependency: A relation between two or more modules which either directly or indirectly depend on each other to function properly. The tight coupling of the mutualally dependent modules which reduces or makes impossible the separate re-use of a single module.
+ */
+
+// Recursive Enum
+// Reference vs Value Type in Associated Value
+
+class BobClass {}
+struct BobStruct {}
+enum BobEnum { 
+    case bobCase
+}
+
+let bobClass = BobClass()
+let bobStruct = BobStruct()
+let bobEnum = BobEnum.bobCase
+
+enum MyEnum {
+    case myClass(BobClass)
+    case myStruct(BobStruct)
+    case myEnum(BobEnum)
+}
+
+// The meaning of indirect enum with Binary Tree
+
+indirect enum Tree {
+    case Empty
+    case Node(value: Int, left: Tree, right: Tree)
+}
+
+let tree1 = Tree.Node(value: 1, left: Tree.Empty, right: Tree.Empty)
+let tree2 = Tree.Node(value: 2, left: Tree.Empty, right: Tree.Empty)
+let tree3 = Tree.Node(value: 3, left: Tree.Empty, right: Tree.Empty)
+let tree4 = Tree.Node(value: 4, left: Tree.Empty, right: Tree.Empty)
+
+// Recursive Function To Sum Values
+func evaluateTree(tree: Tree) -&gt; Int { 
+    switch tree {
+    case .Empty:
+        return 0
+    case .Node(let value, let left, let right):
+        return value + evaluateTree(tree: left) + evaluateTree(tree: right)
+    }
+}
+
+evaluateTree(tree: tree1)
+evaluateTree(tree: tree2)
+evaluateTree(tree: tree3)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2818}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
