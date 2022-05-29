@@ -9,26 +9,26 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import Foundation
-</string>
-			<key>ModifiedRange</key>
-			<string>{0, 18}</string>
-			<key>OriginalContent</key>
-			<string></string>
-			<key>OriginalRange</key>
-			<string>{0, 0}</string>
-		</dict>
-		<dict>
-			<key>ModifiedContent</key>
-			<string>for _ in 1...100 { 
-    print("hello")
+import MediaPlayer
+
+let startTime = CACurrentMediaTime()
+
+for i in 1...10000000 { 
+    print(i)
 }
+
+let totalTime = CACurrentMediaTime() - startTime
+let sum = "time - \(totalTime) sec"
+
+print("Total: \(sum)")
 </string>
 			<key>ModifiedRange</key>
-			<string>{19, 41}</string>
+			<string>{0, 226}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>
+</string>
 			<key>OriginalRange</key>
-			<string>{1, 0}</string>
+			<string>{0, 1}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

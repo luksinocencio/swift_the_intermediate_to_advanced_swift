@@ -10,13 +10,84 @@
 			<key>ModifiedContent</key>
 			<string>import Foundation
 
+
+// Problem: Understand, "Swift is a protocol oriented language"
+
+5 == 5
+"Bob" == "Bob"
+
+struct Random { 
+    
+}
+
+// Random() == Randdom()
+
+// MARK: - Equatable
+// func ==(lhs: Self, rhs: Self) -&gt; Bool
+
+struct Blog { 
+    let author: String
+    let title: String
+}
+
+extension Blog: Equatable { 
+    static func ==(lhs: Blog, rhs: Blog) -&gt; Bool { 
+        return lhs.author == rhs.author &amp;&amp; lhs.title == rhs.title
+    }
+}
+
+Blog(author: "Bob", title: "Swift") == Blog(author: "Bob", title: "Swift") 
+
+    // Custom Tuple
+struct GridPoint {
+    var grid: (Int, Int)
+    init(_ numberOne: Int, _ numberTwo: Int) {
+        grid = (numberOne, numberTwo)
+    }
+}
+
+extension GridPoint: Equatable { 
+    static func ==(lhs: GridPoint, rhs: GridPoint) -&gt; Bool { 
+        return lhs.grid.0 == rhs.grid.0 &amp;&amp; lhs.grid.1 == rhs.grid.1
+    }
+}
+
+let pointOne = GridPoint(4, 10)
+let pointTwo = GridPoint(4, 10)
+
+
+pointOne == pointTwo
+
+enum OS { 
+    case iOS
+    case android
+}
+
+extension OS: Comparable { 
+    static func ==(lhs: OS, rhs: OS) -&gt; Bool { 
+        return lhs == rhs
+    }
+    
+    static func &lt;(lhs: OS, rhs: OS) -&gt; Bool { 
+        return rhs == .iOS ? true : false
+    }
+    
+    static func &lt;=(lhs: OS, rhs: OS) -&gt; Bool { 
+        return false
+    }
+    
+    static func &gt;=(lhs: OS, rhs: OS) -&gt; Bool { 
+        return false
+    }
+}
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 19}</string>
+			<string>{0, 1351}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>
+</string>
 			<key>OriginalRange</key>
-			<string>{0, 0}</string>
+			<string>{0, 1}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

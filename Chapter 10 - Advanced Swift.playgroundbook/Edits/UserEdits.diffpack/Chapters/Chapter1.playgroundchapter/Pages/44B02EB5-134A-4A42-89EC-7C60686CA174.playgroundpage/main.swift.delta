@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+// Problem: What goes under the hood of a for-in loop.
+
+let iOSSkills = ["Swift", "UIKit", "RxSwift", "TDD"]
+
+for skill in iOSSkills {
+    print(skill)
+}
+
+var skillIterator = iOSSkills.makeIterator()
+
+while let skill = skillIterator.next() { 
+    print(skill)
+}
+
+let numbers = [2, 3, 5, 7]
+var numbersIterator = numbers.makeIterator()
+
+numbersIterator.next()
+numbersIterator.next()
+
+struct MyCountdown: Sequence { 
+    let start: Int
+    
+    func makeIterator() -&gt; CountdownIterator {
+        return CountdownIterator(self)
+    }
+}
+
+struct CountdownIterator: IteratorProtocol {
+    let countdown: MyCountdown
+    var times = 0
+    
+    init(_ countdown: MyCountdown) {
+        self.countdown = countdown
+    }
+    
+    mutating func next() -&gt; Int? {
+        let nextNumber = countdown.start - times
+        guard nextNumber &gt; 0 else { return nil }
+        times += 1
+        return nextNumber
+    }
+}
+
+var threeTwoOne = MyCountdown(start: 3)
+
+var iterator = threeTwoOne.makeIterator()
+iterator.next()
+iterator.next()
+iterator.next()
+iterator.next()
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1069}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
